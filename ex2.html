@@ -29,6 +29,21 @@
                 max: stats.max ? Math.max(number, stats.max) : number,
             };
         }
+
+        // eksempel nytt objekt med eks. verdier
+        function update(){
+            const obj1 = {
+                a: 1,
+                b: 'hei', 
+                c: true,
+            };
+            const obj2 = {...obj1, a: obj1.a+1};
+            console.log(obj2);
+        }
+
+        // mer avansert "gjenbruk", bruk rammeverk - feks:
+        // - Rambda - https://openbase.com/js/ramda 
+        // - F# (alt er innebygd)
     </script>
 </body>
 
