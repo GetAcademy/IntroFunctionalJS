@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<body>
+    <script>
+        /*
+        Rene funksjoner
+        */
+
+        // ren versjon av uren funksjon 2
+        function testCalc() {
+            let stats = {
+                count: 0,
+                sum: 0,
+                min: null,
+                max: null,
+            };
+            stats = calc(1, stats);
+            console.log(stats);
+            stats = calc(2, stats);
+            console.log(stats);
+        }
+
+        function calc(number, stats) {
+            return {
+                count: stats.count+1,
+                sum: stats.sum + number,
+                min: stats.min ? Math.min(number, stats.min) : number,
+                max: stats.max ? Math.max(number, stats.max) : number,
+            };
+        }
+    </script>
+</body>
+
+</html>

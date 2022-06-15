@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<body>
+    <script>
+        /*
+        Rene funksjoner
+        */
+
+
+        // uren funksjon 1 
+        function show(name) {
+            document.body.innerHTML = `Hei, ${name}!`;
+        }
+
+        // uren funksjon 2
+        function testCalc() {
+            let stats = {
+                count: 0,
+                sum: 0,
+                min: null,
+                max: null,
+            };
+            stats = calc(1,stats);
+            console.log(stats);
+            stats = calc(2,stats);
+            console.log(stats);
+        }
+
+
+        function calc(number, stats) {
+            stats.count++;
+            stats.sum += number;
+            stats.min = stats.min ? Math.min(number, stats.min) : number;
+            stats.max = stats.max ? Math.max(number, stats.max) : number;
+            return stats;
+        }
+
+
+
+    </script>
+</body>
+
+</html>
