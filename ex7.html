@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /*
+            sette sammen funksjoner - pipe og compose 
+        */
+
+
+        function impNameCase(name) { // eks: 'tErjE AlbErt kOldErUp' => 'Terje Albert Kolderup';
+            const parts = name.split(' ');
+            let newName = '';
+            for (let part of parts) {
+                if (newName.length > 0) newName += ' ';
+                newName += part[0].toUpperCase() + part.substr(1).toLowerCase();
+            }
+            return newName;
+        }
+
+
+
+        function impNameCaseWithFilterAndMap(name) { // eks: 'tErjE AlbErt kOldErUp' => 'Terje Albert Kolderup';
+            return name
+                .split(' ')
+                .map(part => {
+                    const lower = part.toLowerCase();
+                    return lower[0].toUpperCase() + lower.substr(1)
+                })
+                .join(' ');
+        }
+
+        // helpers
+        const split = sep => str => str.split(sep);
+        const firstToUpper = str => str[0].toUpperCase() + str.substr(1);
+        const toLower = str => str.toLowerCase();
+        const map = f => array => array.map(f);
+        const join = sep => array => array.join(sep);
+
+        function pipe2(f1, f2) {
+            return function (arg) {
+                const result1 = f1(arg);
+                const result2 = f2(result1);
+                return result2;
+            }
+        }
+
+        const combine = (result, nextFun) => nextFun(result)
+        const pipe = (...funs) => x => funs.reduce(combine, x)
+
+        const nameCase = pipe(
+            split(' '),
+            map(pipe(toLower, firstToUpper)),
+            join(' ')
+        );
+
+
+
+    </script>
+</body>
+
+</html>

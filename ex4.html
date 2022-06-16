@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<body>
+    <script>
+        /*
+            høyereordens funksjoner - funksjon som returverdi
+        */
+
+        // legge til logging
+        function withLogging(f) {
+            return function (arg) {
+                console.log(`kjører funksjonen ${f.name} med argumentet ${arg}`);
+                const returnValue = f(arg);
+                console.log(`funksjonen returnerte ${returnValue}`);
+                return returnValue;
+            }
+        }
+
+        /*
+            alertWithLogging = withLogging(alert);
+            alertWithLogging('hei')
+
+            confirmWithLogging = withLogging(confirm);
+            confirmWithLogging(confirm,'hei')
+
+            double = x => x*2
+            doubleWithLogging = withLogging(double);
+            doubleWithLogging(7)
+        */
+    </script>
+</body>
+
+</html>

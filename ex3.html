@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<body>
+    <script>
+        /*
+        høyereordens funksjoner - funksjon som parameter
+        */
+
+        // legge til logging
+        function doWithLogging(f, arg){
+            console.log(`kjører funksjonen ${f.name} med argumentet ${arg}`);
+            const returnValue = f(arg);
+            console.log(`funksjonen returnerte ${returnValue}`);
+            return returnValue;
+        }
+
+        /*
+            doWithLogging(alert,'hei')
+            doWithLogging(confirm,'hei')
+            double = x => x*2
+            doWithLogging(double, 7)
+        */
+    </script>
+</body>
+</html>

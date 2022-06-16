@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<body>
+    <script>
+        /*
+            currying og partial application
+
+            i funksjonell programmering har alle funksjoner kun én parameter
+        */
+
+        tag = (tagName, content) => `<${tagName}>${content}</${tagName}>`;
+        //tag('h1', 'overskrift')
+
+        curriedTag = tagName => content => `<${tagName}>${content}</${tagName}>`;
+        h1 = curriedTag('h1');
+        //h1('overskrift')
+        h2 = curriedTag('h1');
+        //h2('overskrift')
+
+    </script>
+</body>
+
+</html>
