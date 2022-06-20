@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<body>
+    <script>
+        const model = {
+            inputs: {
+                pageA: {
+                    newText: ''
+                }
+            }
+        }
+
+        // ikke-funksjonell lookup: 
+
+        function getFieldV1() {
+            return model.inputs.pageA.newText;
+        }
+
+        function getFieldV2() {
+            if (model && model.inputs && model.inputs.pageA) {
+                return model.inputs.pageA.newText;
+            }
+            return null;
+        }
+
+        function getFieldV3() {
+            if (!isValid()) return null;
+            return model.inputs.pageA.newText;
+        }
+
+        function isValid() {
+            if (!model) return false;
+            if (!model.inputs) return false;
+            if (!model.inputs.pageA) return false;
+            return true;
+        }
+
+        // funksjonell løsning med Maybe
+        // bygger løselig på https://www.rea-group.com/about-us/news-and-insights/blog/introduction-to-option-and-either-types-in-js-part-1/
+        // og https://fsharpforfunandprofit.com/rop/
+
+        // noen hjelpeting først: 
+
+        const Some = x => ({
+            map: f => Some(f(x)),
+            unwrap: () => x,
+        });
+
+        const None = {
+            map: f => None,
+            unwrap: () => x,
+        };
+
+        const Option = x => (x === undefined || x === null) ? None : Some(x);
+
+        const prop = fieldName => obj => Option(obj[fieldName]);
+        // eks: prop('firstName') gir en funksjon som tar en objekt som parameter og returnerer verdien av feltet
+
+        const newTextValue = Option(model)
+            .map(prop('inputs'))
+            .map(prop('pageA'))
+            .map(prop('newText'))
+            .unwrap()
+
+
+
+    </script>
+</body>
+
+</html>
