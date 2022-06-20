@@ -6,7 +6,7 @@
         const model = {
             inputs: {
                 pageA: {
-                    newText: ''
+                    newText: 'Bla bla bla'
                 }
             }
         }
@@ -43,27 +43,25 @@
         // noen hjelpeting først: 
 
         const Some = x => ({
-            map: f => Some(f(x)),
-            unwrap: () => x,
+            map: f => Option(f(x)),
+            log: () => console.log(`Some ${JSON.stringify(x)}`)
         });
 
         const None = {
             map: f => None,
-            unwrap: () => x,
+            log: () => console.log('None')
         };
 
         const Option = x => (x === undefined || x === null) ? None : Some(x);
 
-        const prop = fieldName => obj => Option(obj[fieldName]);
+        const prop = fieldName => obj => obj[fieldName];
         // eks: prop('firstName') gir en funksjon som tar en objekt som parameter og returnerer verdien av feltet
 
-        const newTextValue = Option(model)
+        Option(model)
             .map(prop('inputs'))
             .map(prop('pageA'))
             .map(prop('newText'))
-            .unwrap()
-
-
+            .log();
 
     </script>
 </body>
