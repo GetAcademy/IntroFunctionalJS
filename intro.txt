@@ -1,3 +1,5 @@
+https://github.com/GetAcademy/IntroFunctionalJS
+
 Fire paradigmer: 
  - ustrukturert programmering
  - strukturert programmering
