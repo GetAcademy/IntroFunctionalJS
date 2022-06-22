@@ -4,7 +4,7 @@
 <body>
     <script>
         /*
-        Rene funksjoner
+          Rene funksjoner
         */
 
 
@@ -21,9 +21,9 @@
                 min: null,
                 max: null,
             };
-            stats = calc(1,stats);
+            calc(1,stats);
             console.log(stats);
-            stats = calc(2,stats);
+            calc(2,stats);
             console.log(stats);
         }
 
@@ -33,7 +33,6 @@
             stats.sum += number;
             stats.min = stats.min ? Math.min(number, stats.min) : number;
             stats.max = stats.max ? Math.max(number, stats.max) : number;
-            return stats;
         }
 
 

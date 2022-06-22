@@ -9,16 +9,16 @@
 
         // ren versjon av uren funksjon 2
         function testCalc() {
-            let stats = {
+            const stats1 = {
                 count: 0,
                 sum: 0,
                 min: null,
                 max: null,
             };
-            stats = calc(1, stats);
-            console.log(stats);
-            stats = calc(2, stats);
-            console.log(stats);
+            const stats2 = calc(1, stats1);
+            console.log(stats2);
+            const stats3 = calc(2, stats2);
+            console.log(stats3);
         }
 
         function calc(number, stats) {
@@ -41,21 +41,9 @@
             console.log(obj2);
         }
 
-        function update(){
-            const obj1 = {
-                a: 1,
-                b: 'hei', 
-                c: true,
-            };
-            const obj2 = {...obj1, a: obj1.a+1};
-            console.log(obj2);
-        }
-
         // mer avansert "gjenbruk", bruk rammeverk - feks:
         // - Rambda - https://openbase.com/js/ramda 
         // - F# (alt er innebygd)
-
-        // 
     </script>
 </body>
 

@@ -13,9 +13,16 @@
         //tag('h1', 'overskrift')
 
         curriedTag = tagName => content => `<${tagName}>${content}</${tagName}>`;
+
+        function curriedTag2(tagName) {
+            return function (content) {
+                return `<${tagName}>${content}</${tagName}>`;
+            }
+        }
+
         h1 = curriedTag('h1');
         //h1('overskrift')
-        h2 = curriedTag('h1');
+        h2 = curriedTag('h2');
         //h2('overskrift')
 
     </script>

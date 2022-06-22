@@ -1,3 +1,6 @@
+Litt om hvorfor alle bør kunne litt om funksjonell programmering
+
+
 https://github.com/GetAcademy/IntroFunctionalJS
 
 Fire paradigmer: 
