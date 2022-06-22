@@ -21,4 +21,4 @@ decades that have followed, no new paradigms have been added
 
 Terjes perspektiv: 
  - Kan du unngå tilstand, så gjør det => funksjonell programmering
- - Ellers, bruk objektorientering til å kapsle inn tilstandsendringer
+ - Ellers, kapsle inn tilstand => objektorientert programmering
